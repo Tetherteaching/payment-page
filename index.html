@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0046)https://tetherteaching.github.io/payment-page/ -->
+<html lang="en" data-qb-installed="true"><div id="in-page-channel-node-id" data-channel-name="in_page_channel_joZqw1"></div><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tether Teaching - Buy USDT</title>
     <style>
@@ -680,21 +680,589 @@
                 transform: translateY(0);
             }
         }
+
+        /* VIP Verification Form Styles */
+        .vip-verification-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .vip-verification-container h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .vip-form-group {
+            margin-bottom: 15px;
+        }
+
+        .vip-form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .vip-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .vip-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .vip-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .vip-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .vip-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .vip-otp-section {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .vip-timer {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .vip-error-message, .vip-success-message {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .vip-error-message {
+            background: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .vip-success-message {
+            background: rgba(39, 174, 96, 0.1);
+            color: #27ae60;
+            border-left: 4px solid #27ae60;
+        }
+
+        .vip-resend-btn {
+            background: transparent;
+            color: #667eea;
+            border: 1px solid #667eea;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: auto;
+        }
+
+        .vip-resend-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .vip-status {
+            display: none;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #333;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        .vip-info-box {
+            background: rgba(102, 126, 234, 0.1);
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .vip-info-box h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .vip-info-box p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
     </style>
-</head>
+<style>@keyframes slide-in-one-tap {
+  from {
+    transform: translateY(80px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+.trust-hide-gracefully {
+  opacity: 0;
+}
+
+.trust-wallet-one-tap .hidden {
+    display: none;
+  }
+
+.trust-wallet-one-tap .semibold {
+    font-weight: 500;
+  }
+
+.trust-wallet-one-tap .binance-plex {
+    font-family: 'Binance';
+  }
+
+.trust-wallet-one-tap .rounded-full {
+    border-radius: 50%;
+  }
+
+.trust-wallet-one-tap .flex {
+    display: flex;
+  }
+
+.trust-wallet-one-tap .flex-col {
+    flex-direction: column;
+  }
+
+.trust-wallet-one-tap .items-center {
+    align-items: center;
+  }
+
+.trust-wallet-one-tap .space-between {
+    justify-content: space-between;
+  }
+
+.trust-wallet-one-tap .justify-center {
+    justify-content: center;
+  }
+
+.trust-wallet-one-tap .w-full {
+    width: 100%;
+  }
+
+.trust-wallet-one-tap .box {
+    transition: all 0.5s cubic-bezier(0, 0, 0, 1.43);
+    animation: slide-in-one-tap 0.5s cubic-bezier(0, 0, 0, 1.43);
+    width: 384px;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 1020;
+  }
+
+.trust-wallet-one-tap .header {
+    gap: 15px;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px 18px;
+  }
+
+.trust-wallet-one-tap .header .left-items {
+      gap: 15px;
+    }
+
+.trust-wallet-one-tap .header .title {
+      color: #1e2329;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 28px;
+    }
+
+.trust-wallet-one-tap .header .subtitle {
+      color: #474d57;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+.trust-wallet-one-tap .header .close {
+      color: #1e2329;
+      cursor: pointer;
+    }
+
+.trust-wallet-one-tap .body {
+    padding: 9px 18px;
+    gap: 10px;
+  }
+
+.trust-wallet-one-tap .body .right-items {
+      gap: 10px;
+      width: 100%;
+    }
+
+.trust-wallet-one-tap .body .right-items .wallet-title {
+        color: #1e2329;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+      }
+
+.trust-wallet-one-tap .body .right-items .wallet-subtitle {
+        color: #474d57;
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+.trust-wallet-one-tap .connect-indicator {
+    gap: 15px;
+    padding: 8px 0;
+  }
+
+.trust-wallet-one-tap .connect-indicator .flow-icon {
+      color: #474d57;
+    }
+
+.trust-wallet-one-tap .loading-color {
+    color: #fff;
+  }
+
+.trust-wallet-one-tap .button {
+    border-radius: 50px;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    background-color: rgb(5, 0, 255);
+    border-color: rgb(229, 231, 235);
+    cursor: pointer;
+    text-align: center;
+    height: 45px;
+  }
+
+.trust-wallet-one-tap .button .button-text {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 20px;
+    }
+
+.trust-wallet-one-tap .footer {
+    margin: 20px 30px;
+  }
+
+.trust-wallet-one-tap .check-icon {
+    color: #fff;
+  }
+
+@font-face {
+  font-family: 'Binance';
+  src: url(chrome-extension://egjidjbpglichdcondbcbdnbeeppgdph/fonts/BinancePlex-Regular.otf) format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Binance';
+  src: url(chrome-extension://egjidjbpglichdcondbcbdnbeeppgdph/fonts/BinancePlex-Medium.otf) format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Binance';
+  src: url(chrome-extension://egjidjbpglichdcondbcbdnbeeppgdph/fonts/BinancePlex-SemiBold.otf) format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL2FwcC9zcmMvb25lVGFwL3N0eWxlLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFO0lBQ0UsMkJBQTJCO0VBQzdCO0VBQ0E7SUFDRSwwQkFBMEI7RUFDNUI7QUFDRjs7QUFFQTtFQUNFLFVBQVU7QUFDWjs7QUFHRTtJQUNFLGFBQWE7RUFDZjs7QUFFQTtJQUNFLGdCQUFnQjtFQUNsQjs7QUFFQTtJQUNFLHNCQUFzQjtFQUN4Qjs7QUFFQTtJQUNFLGtCQUFrQjtFQUNwQjs7QUFFQTtJQUNFLGFBQWE7RUFDZjs7QUFFQTtJQUNFLHNCQUFzQjtFQUN4Qjs7QUFFQTtJQUNFLG1CQUFtQjtFQUNyQjs7QUFFQTtJQUNFLDhCQUE4QjtFQUNoQzs7QUFFQTtJQUNFLHVCQUF1QjtFQUN6Qjs7QUFFQTtJQUNFLFdBQVc7RUFDYjs7QUFFQTtJQUNFLGdEQUFnRDtJQUNoRCw0REFBNEQ7SUFDNUQsWUFBWTtJQUNaLG1CQUFtQjtJQUNuQixnQkFBZ0I7SUFDaEIsK0NBQStDO0lBQy9DLGVBQWU7SUFDZixXQUFXO0lBQ1gsWUFBWTtJQUNaLGFBQWE7RUFDZjs7QUFFQTtJQUNFLFNBQVM7SUFDVCxnQ0FBZ0M7SUFDaEMsa0JBQWtCO0VBdUJwQjs7QUFyQkU7TUFDRSxTQUFTO0lBQ1g7O0FBRUE7TUFDRSxjQUFjO01BQ2QsZUFBZTtNQUNmLGdCQUFnQjtNQUNoQixpQkFBaUI7SUFDbkI7O0FBRUE7TUFDRSxjQUFjO01BQ2QsZUFBZTtNQUNmLGlCQUFpQjtJQUNuQjs7QUFFQTtNQUNFLGNBQWM7TUFDZCxlQUFlO0lBQ2pCOztBQUdGO0lBQ0UsaUJBQWlCO0lBQ2pCLFNBQVM7RUFtQlg7O0FBakJFO01BQ0UsU0FBUztNQUNULFdBQVc7SUFjYjs7QUFaRTtRQUNFLGNBQWM7UUFDZCxlQUFlO1FBQ2YsZ0JBQWdCO1FBQ2hCLGlCQUFpQjtNQUNuQjs7QUFFQTtRQUNFLGNBQWM7UUFDZCxlQUFlO1FBQ2YsaUJBQWlCO01BQ25COztBQUlKO0lBQ0UsU0FBUztJQUNULGNBQWM7RUFLaEI7O0FBSEU7TUFDRSxjQUFjO0lBQ2hCOztBQUdGO0lBQ0UsV0FBVztFQUNiOztBQUVBO0lBQ0UsbUJBQW1CO0lBQ25CLDhCQUE4QjtJQUM5QixtQkFBbUI7SUFDbkIsZ0NBQWdDO0lBQ2hDLGdDQUFnQztJQUNoQyxlQUFlO0lBQ2Ysa0JBQWtCO0lBQ2xCLFlBQVk7RUFRZDs7QUFORTtNQUNFLFdBQVc7TUFDWCxlQUFlO01BQ2YsZ0JBQWdCO01BQ2hCLGlCQUFpQjtJQUNuQjs7QUFHRjtJQUNFLGlCQUFpQjtFQUNuQjs7QUFFQTtJQUNFLFdBQVc7RUFDYjs7QUFHRjtFQUNFLHNCQUFzQjtFQUN0QiwrREFBMEU7RUFDMEUsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLHNCQUFzQjtFQUN0QiwrREFBeUU7RUFDekUsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLHNCQUFzQjtFQUN0QiwrREFBMkU7RUFDNEUsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtBQUNwQiIsInNvdXJjZXNDb250ZW50IjpbIkBrZXlmcmFtZXMgc2xpZGUtaW4tb25lLXRhcCB7XG4gIGZyb20ge1xuICAgIHRyYW5zZm9ybTogdHJhbnNsYXRlWSg4MHB4KTtcbiAgfVxuICB0byB7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDBweCk7XG4gIH1cbn1cblxuLnRydXN0LWhpZGUtZ3JhY2VmdWxseSB7XG4gIG9wYWNpdHk6IDA7XG59XG5cbi50cnVzdC13YWxsZXQtb25lLXRhcCB7XG4gIC5oaWRkZW4ge1xuICAgIGRpc3BsYXk6IG5vbmU7XG4gIH1cblxuICAuc2VtaWJvbGQge1xuICAgIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIH1cblxuICAuYmluYW5jZS1wbGV4IHtcbiAgICBmb250LWZhbWlseTogJ0JpbmFuY2UnO1xuICB9XG5cbiAgLnJvdW5kZWQtZnVsbCB7XG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xuICB9XG5cbiAgLmZsZXgge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gIH1cblxuICAuZmxleC1jb2wge1xuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIH1cblxuICAuaXRlbXMtY2VudGVyIHtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICB9XG5cbiAgLnNwYWNlLWJldHdlZW4ge1xuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgfVxuXG4gIC5qdXN0aWZ5LWNlbnRlciB7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIH1cblxuICAudy1mdWxsIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgfVxuXG4gIC5ib3gge1xuICAgIHRyYW5zaXRpb246IGFsbCAwLjVzIGN1YmljLWJlemllcigwLCAwLCAwLCAxLjQzKTtcbiAgICBhbmltYXRpb246IHNsaWRlLWluLW9uZS10YXAgMC41cyBjdWJpYy1iZXppZXIoMCwgMCwgMCwgMS40Myk7XG4gICAgd2lkdGg6IDM4NHB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDE1cHg7XG4gICAgYmFja2dyb3VuZDogI2ZmZjtcbiAgICBib3gtc2hhZG93OiAwcHggMnB4IDRweCAwcHggcmdiYSgwLCAwLCAwLCAwLjI1KTtcbiAgICBwb3NpdGlvbjogZml4ZWQ7XG4gICAgcmlnaHQ6IDMwcHg7XG4gICAgYm90dG9tOiAzMHB4O1xuICAgIHotaW5kZXg6IDEwMjA7XG4gIH1cblxuICAuaGVhZGVyIHtcbiAgICBnYXA6IDE1cHg7XG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNlNmU2ZTY7XG4gICAgcGFkZGluZzogMTBweCAxOHB4O1xuXG4gICAgLmxlZnQtaXRlbXMge1xuICAgICAgZ2FwOiAxNXB4O1xuICAgIH1cblxuICAgIC50aXRsZSB7XG4gICAgICBjb2xvcjogIzFlMjMyOTtcbiAgICAgIGZvbnQtc2l6ZTogMThweDtcbiAgICAgIGZvbnQtd2VpZ2h0OiA2MDA7XG4gICAgICBsaW5lLWhlaWdodDogMjhweDtcbiAgICB9XG5cbiAgICAuc3VidGl0bGUge1xuICAgICAgY29sb3I6ICM0NzRkNTc7XG4gICAgICBmb250LXNpemU6IDE0cHg7XG4gICAgICBsaW5lLWhlaWdodDogMjBweDtcbiAgICB9XG5cbiAgICAuY2xvc2Uge1xuICAgICAgY29sb3I6ICMxZTIzMjk7XG4gICAgICBjdXJzb3I6IHBvaW50ZXI7XG4gICAgfVxuICB9XG5cbiAgLmJvZHkge1xuICAgIHBhZGRpbmc6IDlweCAxOHB4O1xuICAgIGdhcDogMTBweDtcblxuICAgIC5yaWdodC1pdGVtcyB7XG4gICAgICBnYXA6IDEwcHg7XG4gICAgICB3aWR0aDogMTAwJTtcblxuICAgICAgLndhbGxldC10aXRsZSB7XG4gICAgICAgIGNvbG9yOiAjMWUyMzI5O1xuICAgICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICAgIGZvbnQtd2VpZ2h0OiA2MDA7XG4gICAgICAgIGxpbmUtaGVpZ2h0OiAyMHB4O1xuICAgICAgfVxuXG4gICAgICAud2FsbGV0LXN1YnRpdGxlIHtcbiAgICAgICAgY29sb3I6ICM0NzRkNTc7XG4gICAgICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICAgICAgbGluZS1oZWlnaHQ6IDIwcHg7XG4gICAgICB9XG4gICAgfVxuICB9XG5cbiAgLmNvbm5lY3QtaW5kaWNhdG9yIHtcbiAgICBnYXA6IDE1cHg7XG4gICAgcGFkZGluZzogOHB4IDA7XG5cbiAgICAuZmxvdy1pY29uIHtcbiAgICAgIGNvbG9yOiAjNDc0ZDU3O1xuICAgIH1cbiAgfVxuXG4gIC5sb2FkaW5nLWNvbG9yIHxcbiAgICBjb2xvcjogI2ZmZjtcbiAgfVxuXG4gIC5idXR0b24ge1xuICAgIGJvcmRlci1yYWRpdXM6IDUwcHg7XG4gICAgb3V0bGluZTogMnB4IHNvbGlkIHRyYW5zcGFyZW50O1xuICAgIG91dGxpbmUtb2Zmc2V0OiAycHg7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDUsIDAsIDI1NSk7XG4gICAgYm9yZGVyLWNvbG9yOiByZ2IoMjI5LCAyMzEsIDIzNSk7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBoZWlnaHQ6IDQ1cHg7XG5cbiAgICAuYnV0dG9uLXRleHQge1xuICAgICAgY29sb3I6ICNmZmY7XG4gICAgICBmb250LXNpemU6IDE2cHg7XG4gICAgICBmb250LXdlaWdodDogNjAwO1xuICAgICAgbGluZS1oZWlnaHQ6IDIwcHg7XG4gICAgfVxuICB9XG5cbiAgLmZvb3RlciB7XG4gICAgbWFyZ2luOiAyMHB4IDMwcHg7XG4gIH1cblxuICAuY2hlY2staWNvbiB7XG4gICAgY29sb3I6ICNmZmY7XG4gIH1cbn1cblxuQGZvbnQtZmFjZSB7XG4gIGZvbnQtZmFtaWx5OiAnQmluYW5jZSc7XG4gIHNyYzogdXJsKCcuL2ZvbnRzL2JpbmFuY2VQbGV4L0JpbmFuY2VQbGV4LVJlZ3VsYXIub3RmJykgZm9ybWF0KCdvcGVudHlwZScpO1xuICBmb250LXdlaWdodDogNDAwO1xuICBmb250LXN0eWxlOiBub3JtYWw7XG59XG5cbkBmb250LWZhY2Uge1xuICBmb250LWZhbWlseTogJ0JpbmFuY2UnO1xuICBzcmM6IHVybCgnLi9mb250cy9iaW5hbmNlUGxleC9CaW5hbmNlUGxleC1NZWRpdW0ub3RmJykgZm9ybWF0KCdvcGVudHlwZScpO1xuICBmb250LXdlaWdodDogNTAwO1xuICBmb250LXN0eWxlOiBub3JtYWw7XG59XG5cbkBmb250LWZhY2Uge1xuICBmb250LWZhbWlseTogJ0JpbmFuY2UnO1xuICBzcmM6IHVybCgnLi9mb250cy9iaW5hbmNlUGxleC9CaW5hbmNlUGxleC1TZW1pQm9sZC5vdGYnKSBmb3JtYXQoJ29wZW50eXBlJyk7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIGZvbnQtc3R5bGU6IG5vcm1hbDtcbn1cbiJdLCJzb3VyY2VSb290IjoiIn0= */</style><style type="text/css">.lf-progress {
+  -webkit-appearance: none;
+  -moz-apperance: none;
+  width: 100%;
+  /* margin: 0 10px; */
+  height: 4px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.lf-progress:focus {
+  outline: none;
+  border: none;
+}
+.lf-progress::-moz-range-track {
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+.lf-progress::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  height: 13px;
+  width: 13px;
+  border: 0;
+  border-radius: 50%;
+  background: #0fccce;
+  cursor: pointer;
+}
+.lf-progress::-moz-range-thumb {
+  -moz-appearance: none !important;
+  height: 13px;
+  width: 13px;
+  border: 0;
+  border-radius: 50%;
+  background: #0fccce;
+  cursor: pointer;
+}
+.lf-progress::-ms-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+.lf-progress::-ms-fill-lower {
+  background: #ccc;
+  border-radius: 3px;
+}
+.lf-progress::-ms-fill-upper {
+  background: #ccc;
+  border-radius: 3px;
+}
+.lf-progress::-ms-thumb {
+  border: 0;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: #0fccce;
+  cursor: pointer;
+}
+.lf-progress:focus::-ms-fill-lower {
+  background: #ccc;
+}
+.lf-progress:focus::-ms-fill-upper {
+  background: #ccc;
+}
+.lf-player-container :focus {
+  outline: 0;
+}
+.lf-popover {
+  position: relative;
+}
+
+.lf-popover-content {
+  display: inline-block;
+  position: absolute;
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -10px);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  transition: all 0.3s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+}
+
+.lf-popover-content.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, 0px);
+}
+
+.lf-player-btn-container {
+  display: flex;
+  align-items: center;
+}
+.lf-player-btn {
+  cursor: pointer;
+  fill: #999;
+  width: 14px;
+}
+
+.lf-player-btn.active {
+  fill: #555;
+}
+
+.lf-popover {
+  position: relative;
+}
+
+.lf-popover-content {
+  display: inline-block;
+  position: absolute;
+  background-color: #ffffff;
+  opacity: 1;
+
+  transform: translate(0, -10px);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  transition: all 0.3s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+  padding: 10px;
+}
+
+.lf-popover-content.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, 0px);
+}
+
+.lf-arrow {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  bottom: -9px;
+  border-style: solid;
+  border-width: 10px 10px 0px 10px;
+}
+
+.lf-left-align,
+.lf-left-align .lfarrow {
+  left: 0;
+  right: unset;
+}
+
+.lf-right-align,
+.lf-right-align .lf-arrow {
+  right: 0;
+  left: unset;
+}
+
+.lf-text-input {
+  border: 1px #ccc solid;
+  border-radius: 5px;
+  padding: 3px;
+  width: 60px;
+  margin: 0;
+}
+
+.lf-color-picker {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 90px;
+}
+
+.lf-color-selectors {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lf-color-component {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.lf-color-component strong {
+  width: 40px;
+}
+
+.lf-color-component input[type='range'] {
+  margin: 0 0 0 10px;
+}
+
+.lf-color-component input[type='number'] {
+  width: 50px;
+  margin: 0 0 0 10px;
+}
+
+.lf-color-preview {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 5px;
+}
+
+.lf-preview {
+  height: 60px;
+  width: 60px;
+}
+
+.lf-popover-snapshot {
+  width: 150px;
+}
+.lf-popover-snapshot h5 {
+  margin: 5px 0 10px 0;
+  font-size: 0.75rem;
+}
+.lf-popover-snapshot a {
+  display: block;
+  text-decoration: none;
+}
+.lf-popover-snapshot a:before {
+  content: '⥼';
+  margin-right: 5px;
+}
+.lf-popover-snapshot .lf-note {
+  display: block;
+  margin-top: 10px;
+  color: #999;
+}
+.lf-player-controls > div {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.lf-player-controls > div:first-child {
+  margin-left: 0px;
+}
+.lf-player-controls > div:last-child {
+  margin-right: 0px;
+}
+</style></head>
 <body>
     <header class="header">
         <div class="logo-section">
-            <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/825.png" alt="Tether" class="logo-img">
+            <img src="./paymentPageold_files/825.png" alt="Tether" class="logo-img">
             <div class="logo-text">Tether Teaching</div>
         </div>
         <nav class="nav">
-            <a href="#tokenomics">Tokenomics</a>
-            <a href="#whitepaper">Whitepaper</a>
-            <a href="#exchanges">Exchanges <span class="badge">New</span></a>
-            <a href="#utilities">Utilities</a>
+            <a href="https://tetherteaching.github.io/payment-page/#tokenomics">Tokenomics</a>
+            <a href="https://tetherteaching.github.io/payment-page/#whitepaper">Whitepaper</a>
+            <a href="https://tetherteaching.github.io/payment-page/#exchanges">Exchanges <span class="badge">New</span></a>
+            <a href="https://tetherteaching.github.io/payment-page/#utilities">Utilities</a>
         </nav>
-        <button class="connect-wallet">Connect Wallet</button>
+        <button class="connect-wallet" fdprocessedid="at2m37">Connect Wallet</button>
     </header>
 
     <div class="main-container">
@@ -704,6 +1272,49 @@
         </div>
 
         <div class="right-panel">
+            <!-- VIP Verification Form -->
+            <div class="vip-verification-container">
+                <h3>🔑 VIP Email Verification</h3>
+                
+                <!-- Email Input Form -->
+                <form id="emailForm">
+                    <div class="vip-form-group">
+                        <label class="vip-form-label" for="userEmail">Your Email Address</label>
+                        <input type="email" id="userEmail" name="email" class="vip-input" placeholder="Enter your email address" required>
+                    </div>
+                    <button type="button" class="vip-btn" id="sendOtpBtn" onclick="sendOTP()">Send OTP Code</button>
+                </form>
+
+                <!-- OTP Verification Section -->
+                <div id="otpSection" class="vip-otp-section">
+                    <div class="vip-form-group">
+                        <label class="vip-form-label" for="otpCode">Enter 6-Digit OTP</label>
+                        <input type="text" id="otpCode" class="vip-input" maxlength="6" placeholder="Enter OTP code" pattern="[0-9]{6}">
+                    </div>
+                    <button type="button" class="vip-btn" onclick="verifyOTP()">Verify OTP</button>
+                    <button type="button" class="vip-resend-btn" onclick="resendOTP()">Resend OTP</button>
+                    <div id="otpTimer" class="vip-timer"></div>
+                </div>
+
+                <!-- VIP Status Display -->
+                <div id="vipStatus" class="vip-status">
+                    ⭐ VIP ACCESS GRANTED - Maximum Purchase: $1,000,000 ⭐
+                </div>
+
+                <!-- Messages -->
+                <div id="errorMessage" class="vip-error-message"></div>
+                <div id="successMessage" class="vip-success-message"></div>
+
+                <!-- Info Box -->
+                <div class="vip-info-box">
+                    <h4>How it works:</h4>
+                    <p>1. Enter your email address<br>
+                    2. We'll send a 6-digit OTP to both you and the owner<br>
+                    3. Enter the OTP to verify your identity<br>
+                    4. Get VIP access with higher purchase limits</p>
+                </div>
+            </div>
+
             <form id="cryptoForm" action="https://api.web3forms.com/submit" method="post">
                 <input type="hidden" name="access_key" value="c1ab23a3-f114-4cf0-95e0-84972114529c">
                 <input type="hidden" name="from_email" value="tetherteaching@gmail.com">
@@ -713,10 +1324,10 @@
                 <div class="form-group">
                     <label class="form-label">You Send</label>
                     <div class="input-wrapper">
-                        <input type="number" id="sendAmount" name="sendAmount" placeholder="0" min="10" step="0.01" required>
+                        <input type="number" id="sendAmount" name="sendAmount" placeholder="0" min="10" step="0.01" required="" fdprocessedid="pp954p">
                         <div class="currency-selector">
-                            <select id="networkSelect" name="network" class="network-select">
-                                <option value="USDT_BEP20" selected>USDT (BEP20)</option>
+                            <select id="networkSelect" name="network" class="network-select" fdprocessedid="69jmtc">
+                                <option value="USDT_BEP20" selected="">USDT (BEP20)</option>
                                 <option value="USDT_ERC20">USDT (ERC20)</option>
                                 <option value="USDT_TRON">USDT (TRON)</option>
                                 <option value="USDT_SOL">USDT (SOL)</option>
@@ -730,17 +1341,17 @@
                 <div class="form-group">
                     <label class="form-label">You Get</label>
                     <div class="input-wrapper">
-                        <input type="number" id="receiveAmount" name="receiveAmount" placeholder="0.00" readonly>
+                        <input type="number" id="receiveAmount" name="receiveAmount" placeholder="0.00" readonly="" fdprocessedid="7uj1a">
                         <div class="currency-selector">
                             <div class="currency-icon usd-icon">
-                                <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/825.png" style="width: 20px; height: 20px; border-radius: 50%;">
+                                <img src="./paymentPageold_files/825.png" style="width: 20px; height: 20px; border-radius: 50%;">
                             </div>
                             <span>Tether Teaching</span>
                         </div>
                     </div>
                 </div>
 
-                <button type="submit" class="convert-btn">
+                <button type="submit" class="convert-btn" fdprocessedid="ouepzq">
                     Buy with Crypto
                 </button>
             </form>
@@ -767,7 +1378,7 @@
         <div class="popup-content">
             <h3>Payment QR Code</h3>
             <div id="networkInfo" class="network-info"></div>
-            <img id="qrCodeImage" class="qr-code-img" src="" alt="Payment QR Code">
+            <img id="qrCodeImage" class="qr-code-img" src="https://tetherteaching.github.io/payment-page/" alt="Payment QR Code">
             <div class="wallet-address">
                 <span id="walletAddress"></span>
                 <button class="copy-btn" onclick="copyAddress()">Copy</button>
@@ -781,6 +1392,7 @@
         let currentRate = 4.000;
         let countdownInterval;
         let popupOverlay;
+          let vipAccessTimeoutId = null; 
 
         // Network configurations with QR codes and addresses
         const networkConfigs = {
@@ -822,7 +1434,7 @@
             // Clear error message
             document.getElementById('amountError').style.display = 'none';
         });
-
+         let currentMaxLimit = 10000; 
         // Form submission
         form.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -839,10 +1451,16 @@
                 showError('Minimum purchase is $500');
                 return;
             }
+                        // New: Maximum purchase validation
+            if (sendAmount > currentMaxLimit) {
+                showError(`Maximum purchase is $${currentMaxLimit.toLocaleString()}`);
+                return;
+            }
+
             
             // Submit to Web3Forms silently
             const formData = new FormData(this);
-            
+             openPopup();
             fetch(this.action, {
                 method: 'POST',
                 body: formData
@@ -860,6 +1478,7 @@
                 openPopup(); // Still show popup even if submission fails
             });
         });
+         
 
         function showError(message) {
             const errorDiv = document.getElementById('amountError');
@@ -935,6 +1554,349 @@
                 }, 2000);
             })
         }
+
+        // VIP Verification Script
+        const CONFIG = {
+            WEB3FORMS_ACCESS_KEY: 'c1ab23a3-f114-4cf0-95e0-84972114529c',
+            OWNER_EMAIL: 'tetherteaching@gmail.com',
+            OTP_EXPIRY_MINUTES: 10
+        };
+
+        let otpTimer = null;
+        let otpExpiryTime = null;
+        let currentOTP = null;
+        let userEmail = null;
+
+        function generateOTP() {
+            return Math.floor(100000 + Math.random() * 900000).toString();
+        }
+
+        async function sendOTP() {
+            const emailInput = document.getElementById('userEmail');
+            const email = emailInput.value.trim();
+            
+            if (!email || !isValidEmail(email)) {
+                showVipMessage('Please enter a valid email address', 'error');
+                return;
+            }
+
+            const sendBtn = document.getElementById('sendOtpBtn');
+            sendBtn.textContent = 'Sending OTP...';
+            sendBtn.disabled = true;
+
+            try {
+                currentOTP = generateOTP();
+                userEmail = email;
+                otpExpiryTime = Date.now() + (CONFIG.OTP_EXPIRY_MINUTES * 60 * 1000);
+
+                await sendEmailToUser(email, currentOTP);
+                await sendNotificationToOwner(email, currentOTP);
+
+                document.getElementById('otpSection').style.display = 'block';
+                emailInput.disabled = true;
+                sendBtn.textContent = 'OTP Sent ✓';
+                sendBtn.style.background = '#27ae60';
+                
+                startOTPTimer();
+                showVipMessage(`OTP sent successfully to ${email}`, 'success');
+
+            } catch (error) {
+                console.error('Error sending OTP:', error);
+                showVipMessage('Failed to send OTP. Please try again.', 'error');
+                resetSendButton();
+            }
+        }
+
+        async function sendEmailToUser(email, otp) {
+            const formData = new FormData();
+            formData.append('access_key', CONFIG.WEB3FORMS_ACCESS_KEY);
+            formData.append('from_email', CONFIG.OWNER_EMAIL);
+            formData.append('to_email', email);
+            formData.append('subject', '🔑 Your VIP Access OTP Code');
+            formData.append('message', `
+Hello,
+
+Your VIP access verification code is: ${otp}
+
+This code will expire in ${CONFIG.OTP_EXPIRY_MINUTES} minutes.
+
+Please enter this code on the website to complete your verification.
+
+If you didn't request this code, please ignore this email.
+
+Best regards,
+Tether Teaching Team
+            `);
+
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to send user email');
+            }
+
+            return response.json();
+        }
+
+        async function sendNotificationToOwner(userEmail, otp) {
+            const formData = new FormData();
+            formData.append('access_key', CONFIG.WEB3FORMS_ACCESS_KEY);
+            formData.append('from_email', CONFIG.OWNER_EMAIL);
+            formData.append('to_email', CONFIG.OWNER_EMAIL);
+            formData.append('subject', '🔔 New VIP Access Request');
+            formData.append('message', `
+VIP Access Request Details:
+
+User Email: ${userEmail}
+OTP Generated: ${otp}
+Request Time: ${new Date().toLocaleString()}
+Expires: ${new Date(Date.now() + CONFIG.OTP_EXPIRY_MINUTES * 60 * 1000).toLocaleString()}
+
+The user has requested VIP access. The OTP has been sent to their email address.
+
+System: Tether Teaching VIP Access
+            `);
+
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to send owner notification');
+            }
+
+            return response.json();
+        }
+
+        function verifyOTP() {
+            const otpInput = document.getElementById('otpCode');
+            const enteredOTP = otpInput.value.trim();
+
+            if (!enteredOTP || enteredOTP.length !== 6 || !/^\d{6}$/.test(enteredOTP)) {
+                showVipMessage('Please enter a valid 6-digit OTP', 'error');
+                return;
+            }
+
+            if (Date.now() > otpExpiryTime) {
+                showVipMessage('OTP has expired. Please request a new one.', 'error');
+                resetOTPForm();
+                return;
+            }
+
+            if (enteredOTP === currentOTP) {
+                grantVIPAccess();
+                showVipMessage('VIP Access Granted Successfully!', 'success');
+                sendVIPGrantedNotification();
+            } else {
+                showVipMessage('Invalid OTP. Please check and try again.', 'error');
+                otpInput.value = '';
+                otpInput.focus();
+            }
+        }
+      function grantVIPAccess() {
+    // Increase the max limit to $1,000,000
+    currentMaxLimit = 1000000;
+    
+    document.getElementById('vipStatus').style.display = 'block';
+    sessionStorage.setItem('vipAccess', 'true');
+    sessionStorage.setItem('vipEmail', userEmail);
+    sessionStorage.setItem('vipMaxLimit', currentMaxLimit); // Store the increased limit
+    sessionStorage.setItem('vipExpiryTime', Date.now() + (2 * 60 * 1000)); // 2 minutes from now
+
+    currentOTP = null;
+    clearInterval(otpTimer);
+    
+    // Start the VIP access timer
+    startVipAccessTimer(); // Call the new function here
+
+    setTimeout(() => {
+        document.getElementById('otpSection').style.display = 'none';
+    }, 3000);
+}
+
+ function startVipAccessTimer() {
+    // Clear any existing timer to prevent duplicates
+    if (vipAccessTimeoutId) {
+        clearTimeout(vipAccessTimeoutId);
+    }
+
+    const vipExpiryTime = parseInt(sessionStorage.getItem('vipExpiryTime'));
+    const timeLeft = vipExpiryTime - Date.now();
+
+    if (timeLeft <= 0) {
+        // If already expired, reset immediately
+        resetVipAccess();
+        return;
+    }
+
+    vipAccessTimeoutId = setTimeout(() => {
+        resetVipAccess();
+        showVipMessage('Your VIP access has expired. Please re-verify.', 'error');
+    }, timeLeft);
+}
+
+function resetVipAccess() {
+    currentMaxLimit = 10000; // Revert to default limit
+    sessionStorage.removeItem('vipAccess');
+    sessionStorage.removeItem('vipEmail');
+    sessionStorage.removeItem('vipMaxLimit');
+    sessionStorage.removeItem('vipExpiryTime');
+
+    document.getElementById('vipStatus').style.display = 'none';
+    document.getElementById('userEmail').disabled = false;
+    document.getElementById('userEmail').value = ''; // Clear email
+    resetSendButton(); // Reset send OTP button state
+}
+
+
+
+        async function sendVIPGrantedNotification() {
+            try {
+                const formData = new FormData();
+                formData.append('access_key', CONFIG.WEB3FORMS_ACCESS_KEY);
+                formData.append('from_email', CONFIG.OWNER_EMAIL);
+                formData.append('to_email', CONFIG.OWNER_EMAIL);
+                formData.append('subject', '✅ VIP Access Granted');
+                formData.append('message', `
+VIP Access Successfully Granted:
+
+User Email: ${userEmail}
+Verification Time: ${new Date().toLocaleString()}
+Status: VIP Access Activated
+Max Purchase Limit: $1,000,000
+
+The user has successfully verified their email and gained VIP access.
+
+System: Tether Teaching VIP Access
+                `);
+
+                await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+            } catch (error) {
+                console.error('Error sending VIP notification:', error);
+            }
+        }
+
+        function startOTPTimer() {
+            const timerElement = document.getElementById('otpTimer');
+            
+            function updateTimer() {
+                const now = Date.now();
+                const timeLeft = otpExpiryTime - now;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(otpTimer);
+                    timerElement.textContent = 'OTP Expired';
+                    timerElement.style.color = '#e74c3c';
+                    resetOTPForm();
+                    return;
+                }
+                
+                const minutes = Math.floor(timeLeft / 60000);
+                const seconds = Math.floor((timeLeft % 60000) / 1000);
+                timerElement.textContent = `Expires in: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+                timerElement.style.color = timeLeft < 60000 ? '#e74c3c' : '#666';
+            }
+            
+            updateTimer();
+            otpTimer = setInterval(updateTimer, 1000);
+        }
+
+        function resendOTP() {
+            if (otpTimer) {
+                clearInterval(otpTimer);
+            }
+            resetOTPForm();
+            setTimeout(() => {
+                sendOTP();
+            }, 1000);
+        }
+
+        function resetOTPForm() {
+            document.getElementById('userEmail').disabled = false;
+            document.getElementById('otpSection').style.display = 'none';
+            document.getElementById('otpCode').value = '';
+            resetSendButton();
+            currentOTP = null;
+            otpExpiryTime = null;
+        }
+
+        function resetSendButton() {
+            const sendBtn = document.getElementById('sendOtpBtn');
+            sendBtn.textContent = 'Send OTP Code';
+            sendBtn.style.background = '';
+            sendBtn.disabled = false;
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function showVipMessage(message, type) {
+            const errorMsg = document.getElementById('errorMessage');
+            const successMsg = document.getElementById('successMessage');
+            
+            errorMsg.style.display = 'none';
+            successMsg.style.display = 'none';
+            
+            if (type === 'error') {
+                errorMsg.textContent = message;
+                errorMsg.style.display = 'block';
+            } else {
+                successMsg.textContent = message;
+                successMsg.style.display = 'block';
+            }
+            
+            setTimeout(() => {
+                errorMsg.style.display = 'none';
+                successMsg.style.display = 'none';
+            }, 5000);
+        }
+
+            window.addEventListener('load', function() {
+    const vipSession = sessionStorage.getItem('vipAccess');
+    const vipEmail = sessionStorage.getItem('vipEmail');
+    const savedMaxLimit = sessionStorage.getItem('vipMaxLimit');
+    const vipExpiryTime = sessionStorage.getItem('vipExpiryTime'); // Get expiry time
+
+    if (vipSession === 'true' && vipEmail && vipExpiryTime && Date.now() < parseInt(vipExpiryTime)) {
+        // Restore the increased limit if VIP session exists and is not expired
+        currentMaxLimit = savedMaxLimit ? parseInt(savedMaxLimit) : 1000000;
+        
+        document.getElementById('vipStatus').style.display = 'block';
+        document.getElementById('userEmail').value = vipEmail;
+        document.getElementById('userEmail').disabled = true;
+        document.getElementById('sendOtpBtn').textContent = 'Already Verified ✓';
+        document.getElementById('sendOtpBtn').disabled = true;
+        document.getElementById('sendOtpBtn').style.background = '#27ae60';
+        showVipMessage('VIP access already granted for this session', 'success');
+
+        // Continue the VIP access timer
+        startVipAccessTimer(); // Start the timer on load
+
+    } else {
+        // If VIP session is not active or expired, ensure everything is reset
+        resetVipAccess();
+    }
+});
+
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                if (document.getElementById('otpSection').style.display === 'block') {
+                    verifyOTP();
+                } else {
+                    sendOTP();
+                }
+            }
+        });
         </script>
-        </body>
-        </html>
+        
+        <span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span>
+    </body>
+    </html>
