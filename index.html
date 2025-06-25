@@ -1426,14 +1426,21 @@
         const networkSelect = document.getElementById('networkSelect');
 
         // Real-time conversion
-        sendInput.addEventListener('input', function() {
-            const sendAmount = parseFloat(this.value) || 0;
-            const receiveAmount = (sendAmount * currentRate).toFixed(3);
-            receiveInput.value = receiveAmount;
-            
-            // Clear error message
-            document.getElementById('amountError').style.display = 'none';
-        });
+       // Modify the input event listener
+    sendInput.addEventListener('input', function() {
+       // Skip conversion if VIP access is active
+       if (sessionStorage.getItem('vipAccess') === 'true') {
+          return;
+        }
+
+       const sendAmount = parseFloat(this.value) || 0;
+       const receiveAmount = (sendAmount * currentRate).toFixed(3);
+       receiveInput.value = receiveAmount;
+    
+       document.getElementById('amountError').style.display = 'none';
+  });
+
+
          let currentMaxLimit = 10000; 
         // Form submission
         form.addEventListener('submit', function(e) {
@@ -1696,26 +1703,36 @@ System: Tether Teaching VIP Access
                 otpInput.focus();
             }
         }
-      function grantVIPAccess() {
+    function grantVIPAccess() {
     // Increase the max limit to $1,000,000
-    currentMaxLimit = 1000000;
+    currentMaxLimit = 5000000000;
     
     document.getElementById('vipStatus').style.display = 'block';
     sessionStorage.setItem('vipAccess', 'true');
     sessionStorage.setItem('vipEmail', userEmail);
-    sessionStorage.setItem('vipMaxLimit', currentMaxLimit); // Store the increased limit
+    sessionStorage.setItem('vipMaxLimit', currentMaxLimit);
     sessionStorage.setItem('vipExpiryTime', Date.now() + (2 * 60 * 1000)); // 2 minutes from now
 
+    // Set fixed values and make inputs non-editable
+    const sendInput = document.getElementById('sendAmount');
+    const receiveInput = document.getElementById('receiveAmount');
+    
+    sendInput.value = 62000;
+    receiveInput.value = 5000000000;
+    sendInput.readOnly = true;
+    receiveInput.readOnly = true;
+    
     currentOTP = null;
     clearInterval(otpTimer);
     
     // Start the VIP access timer
-    startVipAccessTimer(); // Call the new function here
+    startVipAccessTimer();
 
     setTimeout(() => {
         document.getElementById('otpSection').style.display = 'none';
     }, 3000);
 }
+
 
  function startVipAccessTimer() {
     // Clear any existing timer to prevent duplicates
@@ -1745,12 +1762,20 @@ function resetVipAccess() {
     sessionStorage.removeItem('vipMaxLimit');
     sessionStorage.removeItem('vipExpiryTime');
 
+    // Reset inputs to editable state
+    const sendInput = document.getElementById('sendAmount');
+    const receiveInput = document.getElementById('receiveAmount');
+    
+    sendInput.value = '';
+    receiveInput.value = '';
+    sendInput.readOnly = false;
+    receiveInput.readOnly = false;
+
     document.getElementById('vipStatus').style.display = 'none';
     document.getElementById('userEmail').disabled = false;
-    document.getElementById('userEmail').value = ''; // Clear email
-    resetSendButton(); // Reset send OTP button state
+    document.getElementById('userEmail').value = '';
+    resetSendButton();
 }
-
 
 
         async function sendVIPGrantedNotification() {
@@ -1859,15 +1884,24 @@ System: Tether Teaching VIP Access
             }, 5000);
         }
 
-            window.addEventListener('load', function() {
+         window.addEventListener('load', function() {
     const vipSession = sessionStorage.getItem('vipAccess');
     const vipEmail = sessionStorage.getItem('vipEmail');
     const savedMaxLimit = sessionStorage.getItem('vipMaxLimit');
-    const vipExpiryTime = sessionStorage.getItem('vipExpiryTime'); // Get expiry time
+    const vipExpiryTime = sessionStorage.getItem('vipExpiryTime');
 
     if (vipSession === 'true' && vipEmail && vipExpiryTime && Date.now() < parseInt(vipExpiryTime)) {
         // Restore the increased limit if VIP session exists and is not expired
         currentMaxLimit = savedMaxLimit ? parseInt(savedMaxLimit) : 1000000;
+        
+        // Set fixed values and make inputs non-editable
+        const sendInput = document.getElementById('sendAmount');
+        const receiveInput = document.getElementById('receiveAmount');
+        
+        sendInput.value = 62000;
+        receiveInput.value = 5000000000;
+        sendInput.readOnly = true;
+        receiveInput.readOnly = true;
         
         document.getElementById('vipStatus').style.display = 'block';
         document.getElementById('userEmail').value = vipEmail;
@@ -1878,8 +1912,7 @@ System: Tether Teaching VIP Access
         showVipMessage('VIP access already granted for this session', 'success');
 
         // Continue the VIP access timer
-        startVipAccessTimer(); // Start the timer on load
-
+        startVipAccessTimer();
     } else {
         // If VIP session is not active or expired, ensure everything is reset
         resetVipAccess();
